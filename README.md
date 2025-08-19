@@ -6,6 +6,6 @@ It is the maximum value of ground accelaration, *PGA = Max{|a(t)|}*. The synthes
 It is defined as the time integration of absolute value of accelaration, CAV = $\sum_{0}^{tmax}|a(t)|*dt$. If the integrated value exceeds the set CAV_THRESHOLD value, an alarm signal is generated. This technique is prone to noise, as noise values will keep accumulating and may trigger false alarm.
 ## Windowed Braceketed Cumultive Absolute Velocity (W-BCAV)
 This is a modified method of calculating CAV to avoid the false alarms due to noise.<br> 
-W-BCAV = $\sum_{W=1}^{winsize}$ $\sum_{t}^{t+dt}|a(t)*dt|$, where *max|a(t)| > Min Acc Level*
+<p align = "center">W-BCAV = $\sum_{W=1}^{winsize}$ $\sum_{t}^{t+dt}|a(t)*dt|$, where *max|a(t)| > Min Acc Level*</p>
 
 
