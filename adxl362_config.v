@@ -49,10 +49,10 @@ module adxl_config(
 	//assign o_config_comp = r_config_comp;
 	
 	spi_clk du0(i_clk, r_cs_n, w_sclk);
-	scaler du1(i_clk, r_xdata, r_ydata, r_zdata, w_xdata_scaled, w_ydata_scaled, w_zdata_scaled);
-	alarm1 du3(i_clk, i_accept, w_xdata_scaled, w_ydata_scaled, w_zdata_scaled, o_alarm_pga);
-	wbcav  du4(i_clk, i_accept, w_xdata_scaled, w_ydata_scaled, w_zdata_scaled, o_alarm_wbcav);
-	cav    du5(i_clk, i_accept, w_xdata_scaled, w_ydata_scaled, w_zdata_scaled, o_alarm_cav);
+	scaler 	du1(i_clk, r_xdata, r_ydata, r_zdata, w_xdata_scaled, w_ydata_scaled, w_zdata_scaled);
+	pga 	du3(i_clk, i_accept, w_xdata_scaled, w_ydata_scaled, w_zdata_scaled, o_alarm_pga);
+	wbcav  	du4(i_clk, i_accept, w_xdata_scaled, w_ydata_scaled, w_zdata_scaled, o_alarm_wbcav);
+	cav    	du5(i_clk, i_accept, w_xdata_scaled, w_ydata_scaled, w_zdata_scaled, o_alarm_cav);
     
     always @(*) begin
         case(i_sel)

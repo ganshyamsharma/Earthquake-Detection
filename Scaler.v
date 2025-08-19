@@ -13,7 +13,7 @@ module scaler(
                  
 	
 	reg [15:0] r_xdata_abs, r_ydata_abs, r_zdata_abs;
-	wire signed [15:0] w_zdata_offs_corrected, w_ydata_offs_corrected,w_xdata_offs_corrected;
+	wire signed [15:0] w_zdata_offs_corrected, w_ydata_offs_corrected, w_xdata_offs_corrected;
 	
 	assign w_zdata_offs_corrected = i_zdata - Z_OFFS;
 	assign w_ydata_offs_corrected = i_ydata - Y_OFFS;
@@ -42,7 +42,7 @@ module scaler(
 	
 	always @(posedge i_clk) begin
 		o_xdata_scaled <= (r_xdata_abs) * SCALER;
-		o_ydata_scaled <= r_ydata_abs * SCALER;
+		o_ydata_scaled <= (r_ydata_abs) * SCALER;
 		o_zdata_scaled <= (r_zdata_abs) * SCALER;		
 	end
 	

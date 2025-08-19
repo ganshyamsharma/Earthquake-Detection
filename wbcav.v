@@ -25,21 +25,11 @@ module wbcav #(parameter WBCAV_THRESHOLD = 56'h0001_0000000000, WINDOW_SIZE = 16
 	clk_1k du1(i_clk, w_clk_1k);
 	
 	always @(posedge i_clk) begin
-	   // r_xdata_win_sum_temp = 0;
-	   // r_ydata_win_sum_temp = 0;
-	   // r_zdata_win_sum_temp = 0;	    
-		//for (i = 0; i < WINDOW_SIZE; i = i + 1) begin
-			r_xdata_win_sum <= r_xdata_acc[0] + r_xdata_acc[1] + r_xdata_acc[2] + r_xdata_acc[3] + r_xdata_acc[4] + r_xdata_acc[5] + r_xdata_acc[6] + r_xdata_acc[7] + r_xdata_acc[8] + r_xdata_acc[9] + r_xdata_acc[10] + r_xdata_acc[11] + r_xdata_acc[12] + r_xdata_acc[13] + r_xdata_acc[14] + r_xdata_acc[15];
-			r_ydata_win_sum <= r_ydata_acc[0] + r_ydata_acc[1] + r_ydata_acc[2] + r_ydata_acc[3] + r_ydata_acc[4] + r_ydata_acc[5] + r_ydata_acc[6] + r_ydata_acc[7] + r_ydata_acc[8] + r_ydata_acc[9] + r_ydata_acc[10] + r_ydata_acc[11] + r_ydata_acc[12] + r_ydata_acc[13] + r_ydata_acc[14] + r_ydata_acc[15];
-			r_zdata_win_sum <= r_zdata_acc[0] + r_zdata_acc[1] + r_zdata_acc[2] + r_zdata_acc[3] + r_zdata_acc[4] + r_zdata_acc[5] + r_zdata_acc[6] + r_zdata_acc[7] + r_zdata_acc[8] + r_zdata_acc[9] + r_zdata_acc[10] + r_zdata_acc[11] + r_zdata_acc[12] + r_zdata_acc[13] + r_zdata_acc[14] + r_zdata_acc[15];
-			//r_xdata_win_sum_temp = r_xdata_win_sum_temp + r_xdata_acc[i];
-			//r_ydata_win_sum_temp = r_ydata_win_sum_temp + r_ydata_acc[i];
-			//r_zdata_win_sum_temp = r_zdata_win_sum_temp + r_zdata_acc[i];			
-		//end
-		//r_xdata_win_sum <= r_xdata_win_sum_temp;
-		//r_ydata_win_sum <= r_ydata_win_sum_temp;
-		//r_zdata_win_sum <= r_zdata_win_sum_temp;
-		
+		/////////// Reminder: Below Summations should be pipelined for better timing performance
+		r_xdata_win_sum <= r_xdata_acc[0] + r_xdata_acc[1] + r_xdata_acc[2] + r_xdata_acc[3] + r_xdata_acc[4] + r_xdata_acc[5] + r_xdata_acc[6] + r_xdata_acc[7] + r_xdata_acc[8] + r_xdata_acc[9] + r_xdata_acc[10] + r_xdata_acc[11] + r_xdata_acc[12] + r_xdata_acc[13] + r_xdata_acc[14] + r_xdata_acc[15];
+		r_ydata_win_sum <= r_ydata_acc[0] + r_ydata_acc[1] + r_ydata_acc[2] + r_ydata_acc[3] + r_ydata_acc[4] + r_ydata_acc[5] + r_ydata_acc[6] + r_ydata_acc[7] + r_ydata_acc[8] + r_ydata_acc[9] + r_ydata_acc[10] + r_ydata_acc[11] + r_ydata_acc[12] + r_ydata_acc[13] + r_ydata_acc[14] + r_ydata_acc[15];
+		r_zdata_win_sum <= r_zdata_acc[0] + r_zdata_acc[1] + r_zdata_acc[2] + r_zdata_acc[3] + r_zdata_acc[4] + r_zdata_acc[5] + r_zdata_acc[6] + r_zdata_acc[7] + r_zdata_acc[8] + r_zdata_acc[9] + r_zdata_acc[10] + r_zdata_acc[11] + r_zdata_acc[12] + r_zdata_acc[13] + r_zdata_acc[14] + r_zdata_acc[15];
+
 		r_xdata_intg <= r_xdata_win_sum * TIMESCALE;
 		r_ydata_intg <= r_ydata_win_sum * TIMESCALE;
 		r_zdata_intg <= r_zdata_win_sum * TIMESCALE;

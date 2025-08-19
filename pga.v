@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module alarm1 #(parameter PGA_THRESHOLD = 24'h100000)(
+module pga #(parameter PGA_THRESHOLD = 24'h100000)(
 	input i_clk, i_accept,
 	input [23:0] i_xdata_scaled, i_ydata_scaled, i_zdata_scaled,
 	output o_pga_alarm
