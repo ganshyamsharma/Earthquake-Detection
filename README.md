@@ -1,5 +1,5 @@
 # Earthquake-Detection
-Detection of earthquake events using various algorithms like PGA, CAV, W-BCAV
+Detection of earthquake events using PGA, CAV and W-BCAV algorithms.
 ## Peak Ground Accelaration (PGA)
 It is the maximum value of ground accelaration. <p align = "center">PGA = Max{|a(t)|}</p>The synthesized circuit continuosly monitors the 3 axis accelaration values measured by the ADXL 362 MEMS based sensor. If the measured value exceeds the PGA_THRESHOLD, an alarm signal is generated.
 ## Cumulative Absolute Velocity (CAV)
